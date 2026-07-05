@@ -256,5 +256,48 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Knolyz CRM capture — every site feeds the one CRM on knolyz.
+    const KNOLYZ_CAPTURE = {
+      endpoint: "https://api.knolyz.com/api/v1/crm/capture",
+      creatorId: "REPLACE-WITH-PATRICK-CREATOR-UUID",
+      site: "milegazette"
+    };
+    document.querySelectorAll(".newsletter-form").forEach((form) => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const input = form.querySelector('input[type="email"]');
+        const button = form.querySelector("button");
+        const email = input.value.trim();
+        if (!email) return;
+        button.disabled = true;
+        button.textContent = "Subscribing...";
+        try {
+          const res = await fetch(KNOLYZ_CAPTURE.endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              creator_id: KNOLYZ_CAPTURE.creatorId,
+              email,
+              source: KNOLYZ_CAPTURE.site,
+              page: window.location.pathname,
+              tags: ["newsletter"]
+            })
+          });
+          const data = await res.json();
+          if (data.success) {
+            button.textContent = "Subscribed!";
+            input.value = "";
+          } else {
+            button.textContent = "Try again";
+            button.disabled = false;
+          }
+        } catch (err) {
+          button.textContent = "Try again";
+          button.disabled = false;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
