@@ -1,173 +1,260 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mile Gazette - Travel SEO and bookings</title>
-  <meta name="description" content="Destination guides and travel tips for planning your next trip: where to go, when to travel, and how to make the most of it.">
-  <link rel="canonical" href="https://milegazette.com/">
-  <meta property="og:title" content="Mile Gazette - Travel SEO and bookings">
-  <meta property="og:description" content="Destination guides and travel tips for planning your next trip: where to go, when to travel, and how to make the most of it.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milegazette | Travel, Destinations & Cards</title>
+  <meta name="description" content="Destination guides, travel tips, and rewards card comparisons">
   <link rel="stylesheet" href="/hc-design.css">
   <style>
-    .mainGrid { display: grid; grid-template-columns: 1fr 280px; gap: 32px; margin: 48px 0; }
-    .sidebar { position: sticky; top: 20px; height: fit-content; }
-    .sectionHeader { margin-bottom: 24px; }
-    .sectionTitle { margin: 0 0 8px 0; border-bottom: 2px solid var(--color-border-soft); padding-bottom: 12px; }
-    .meta { margin: 0; color: var(--color-text-light); }
-    .contentGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .categoryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 768px) { .mainGrid { grid-template-columns: 1fr; } .sidebar { position: static; } .categoryGrid { grid-template-columns: repeat(2, 1fr); } }
+    :root {
+      --bg: #FFFCF7;
+      --bg-soft: #FFF8F0;
+      --text-dark: #5C5550;
+      --text-medium: #7C7670;
+      --text-light: #9C9690;
+      --brand: #E8C17F;
+      --border: #F0E8DC;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--text-dark); font-family: 'Noto Serif', Georgia, serif; line-height: 1.65; font-size: 16px; }
+    a { color: var(--brand); text-decoration: none; }
+
+    .topbar { background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; z-index: 100; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { font-family: 'Work Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-dark); }
+    .nav { display: flex; gap: 24px; flex-wrap: wrap; }
+    .nav a { color: var(--text-medium); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
+    .nav a:hover { color: var(--brand); }
+
+    .featured-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+    .hero-image { background: var(--bg-soft); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 14px; border: 1px solid var(--border); }
+    .hero-content h1 { font-family: 'Work Sans', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--text-dark); }
+    .hero-content p { font-size: 18px; color: var(--text-medium); margin-bottom: 24px; line-height: 1.6; }
+    .hero-badge { display: inline-block; background: rgba(232, 193, 127, 0.15); color: #C19A6B; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 16px; font-family: 'Work Sans', sans-serif; }
+    .hero-cta { display: inline-block; background: var(--brand); color: white; padding: 12px 24px; border-radius: 4px; font-weight: 600; font-family: 'Work Sans', sans-serif; }
+    .hero-cta:hover { background: #D9B26F; }
+
+    .main-grid { display: grid; grid-template-columns: 1fr 280px; gap: 40px; max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+
+    .section-header { margin-bottom: 32px; }
+    .section-header h2 { font-family: 'Work Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); border-bottom: 2px solid var(--border); padding-bottom: 12px; }
+    .section-header p { color: var(--text-light); font-size: 14px; margin: 0; }
+
+    .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+    .story-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s; }
+    .story-card:hover { transform: translateY(-4px); }
+    .story-image { background: #E8DCC8; height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 12px; }
+    .story-content { padding: 16px; }
+    .story-content h3 { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; color: var(--text-dark); }
+    .story-content p { font-size: 13px; color: var(--text-light); margin: 0; }
+
+    .category-section { margin-bottom: 60px; }
+    .category-section h2 { font-family: 'Work Sans', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--text-dark); }
+    .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .category-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-decoration: none; color: inherit; transition: transform 0.2s; }
+    .category-card:hover { transform: translateY(-2px); }
+    .category-card h3 { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); }
+    .category-card p { font-size: 13px; color: var(--text-light); margin: 0; }
+
+    .sidebar { position: sticky; top: 120px; height: fit-content; }
+    .sidebar-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .sidebar-card-label { font-family: 'Work Sans', sans-serif; font-size: 12px; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .sidebar-card h3 { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--text-dark); }
+    .sidebar-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .sidebar-item:last-child { border-bottom: none; }
+    .sidebar-item a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 14px; display: block; }
+    .sidebar-item a:hover { color: var(--brand); }
+    .sidebar-meta { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+    .newsletter { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 40px; text-align: center; margin: 60px auto; max-width: 1200px; }
+    .newsletter h2 { font-family: 'Work Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .newsletter p { color: var(--text-light); margin-bottom: 24px; }
+    .newsletter-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 14px; }
+    .newsletter-form button { background: var(--brand); color: white; border: none; padding: 12px 24px; border-radius: 4px; font-weight: 600; cursor: pointer; font-family: 'Work Sans', sans-serif; }
+    .newsletter-form button:hover { background: #D9B26F; }
+
+    .footer { background: var(--bg-soft); border-top: 1px solid var(--border); padding: 40px 20px; margin-top: 60px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .footer-section h4 { font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); }
+    .footer-section a { display: block; color: var(--text-light); text-decoration: none; font-size: 13px; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-section a:hover { color: var(--brand); }
+
+    @media (max-width: 900px) {
+      .featured-hero { grid-template-columns: 1fr; }
+      .main-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .sidebar { position: static; top: auto; }
+      .sidebar-card { margin-bottom: 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <div class="wrap">
-        <div class="brand">Mile Gazette<small>Travel SEO and bookings</small></div>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="header-flex">
+        <div class="brand">Milegazette</div>
         <nav class="nav">
-          <a href="#top">Home</a>
-          <a href="/destinations/index.html">Destination hub</a>
-<a href="/cards/index.html">Travel cards</a>
-<a href="/guides/index.html">Trip guides</a>
-          <a href="#newsletter">Subscribe</a>
+          <a href="/">Home</a>
+          <a href="/destinations/">Destinations</a>
+          <a href="/cards/">Travel Cards</a>
+          <a href="/guides/">Guides</a>
         </nav>
       </div>
-    </header>
-    <main class="wrap">
+    </div>
+  </header>
 
-      <section class="hero" id="top">
-        <p class="eyebrow">Travel pages built to turn search into bookings</p>
-        <h1>Mile Gazette</h1>
-        <p class="lede">Destination guides and travel tips for planning your next trip: where to go, when to travel, and how to make the most of it.</p>
-        <div class="heroActions">
-          <a class="button primary" href="#latest">Start here</a>
-          <a class="button" href="#hubs">Open the hubs</a>
+  <section class="featured-hero">
+    <div class="hero-image">📷 Featured Story (800×400)</div>
+    <div class="hero-content">
+      <span class="hero-badge">Featured</span>
+      <h1>Paris pages should cover neighborhoods first</h1>
+      <p>The structure travelers want before they choose flights or hotels. A practical guide to building destination pages that convert search into bookings.</p>
+      <a href="/destinations/" class="hero-cta">Read full story →</a>
+    </div>
+  </section>
+
+  <div class="main-grid">
+    <main>
+      <section>
+        <div class="section-header">
+          <h2>Top Stories</h2>
+          <p>Latest coverage and in-depth analysis</p>
+        </div>
+        <div class="story-grid">
+          <a href="/destinations/" class="story-card">
+            <div class="story-image">📷 Story Image</div>
+            <div class="story-content">
+              <h3>Tokyo travel intent is really itinerary intent</h3>
+              <p>Use guide pages to hold readers longer and create more booking opportunities.</p>
+            </div>
+          </a>
+          <a href="/guides/" class="story-card">
+            <div class="story-image">📷 Story Image</div>
+            <div class="story-content">
+              <h3>Destination hubs beat random travel posts</h3>
+              <p>The page architecture that builds trust and search visibility together.</p>
+            </div>
+          </a>
+          <a href="/cards/" class="story-card">
+            <div class="story-image">📷 Story Image</div>
+            <div class="story-content">
+              <h3>Best travel cards for summer trips</h3>
+              <p>Compare points, benefits, and annual fees for your next adventure.</p>
+            </div>
+          </a>
         </div>
       </section>
 
-
-      <div class="mainGrid">
-        <div>
-          <!-- FEATURED STORY (HERO) -->
-          <section id="featured" style="margin-bottom: 48px;">
-            <article style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
-              <div style="background: var(--color-cream-200); min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
-                <div style="text-align: center;">
-                  <div style="font-size: 48px; margin-bottom: 8px;">📸</div>
-                  <div style="font-size: 14px;">Featured Story Image</div>
-                  <div style="font-size: 12px; color: var(--color-text-light); margin-top: 4px;">800×400 recommended</div>
-                </div>
-              </div>
-              <div>
-                <span class="badge" style="margin-bottom: 12px;">Featured</span>
-                <h2 style="margin: 12px 0 16px 0; line-height: 1.4;">Paris pages should cover neighborhoods first</h2>
-                <p style="margin: 0 0 16px 0; color: var(--color-text-medium);">The structure travelers want before they choose flights or hotels.</p>
-                <a href="./destinations/index.html" class="btn btn-primary">Read full story</a>
-              </div>
-            </article>
-          </section>
-
-          <!-- TOP STORIES GRID -->
-          <section id="top-stories">
-            <div class="sectionHeader">
-              <h2 class="sectionTitle">Top Stories</h2>
-              <p class="meta">Latest coverage and in-depth analysis</p>
-            </div>
-            <div class="contentGrid">
-              
-              <article class="card">
-                <div style="background: var(--color-cream-200); height: 150px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 12px;">
-                  📷 Story Image
-                </div>
-                <h4 style="margin: 0 0 8px 0;">Tokyo travel intent is really itinerary intent</h4>
-                <p style="margin: 0; font-size: 13px; color: var(--color-text-light);">Use guide pages to hold readers longer and create more booking opportunities.</p>
-              </article>
-
-              <article class="card">
-                <div style="background: var(--color-cream-200); height: 150px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 12px;">
-                  📷 Story Image
-                </div>
-                <h4 style="margin: 0 0 8px 0;">Destination hubs beat random travel posts</h4>
-                <p style="margin: 0; font-size: 13px; color: var(--color-text-light);">The page architecture that builds trust and search visibility together.</p>
-              </article>
-            </div>
-          </section>
-
-          <!-- CATEGORY HUBS -->
-          <section id="hubs">
-            <div class="sectionHeader">
-              <h2 class="sectionTitle">destinations, cards, and trip planning</h2>
-              <p class="meta">Organized by topic for easy browsing</p>
-            </div>
-            <div class="categoryGrid">
-              
-              <a href="./destinations/index.html" class="card" style="text-decoration: none; color: inherit;">
-                <h4 style="margin-top: 0; margin-bottom: 8px;">Destinations</h4>
-                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
-              </a>
-
-              <a href="./cards/index.html" class="card" style="text-decoration: none; color: inherit;">
-                <h4 style="margin-top: 0; margin-bottom: 8px;">Travel Cards</h4>
-                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">Points, miles, lounge access, and no-foreign-fee cards that fit a trip-planning audience.</p>
-              </a>
-
-              <a href="./guides/index.html" class="card" style="text-decoration: none; color: inherit;">
-                <h4 style="margin-top: 0; margin-bottom: 8px;">Guides</h4>
-                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">Practical travel advice, packing lists, itinerary help, and trip-planning explainers.</p>
-              </a>
-            </div>
-          </section>
-
-          <!-- NEWSLETTER -->
-          <section id="newsletter" style="background: var(--color-cream-200); padding: 32px; border-radius: 8px; text-align: center; margin-top: 48px;">
-            <h2 class="sectionTitle" style="border: none; padding: 0; margin: 0 0 12px 0;">Get the latest delivered</h2>
-            <p class="meta">Daily news, analysis, and insights</p>
-            <div style="display: flex; gap: 8px; max-width: 400px; margin: 20px auto;">
-              <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px; border: 1px solid var(--color-border-soft); border-radius: 4px;" />
-              <button class="btn btn-primary" style="white-space: nowrap; padding: 10px 16px;">Subscribe</button>
-            </div>
-          </section>
+      <section class="category-section">
+        <h2>Destinations</h2>
+        <div class="category-grid">
+          <a href="/destinations/" class="category-card">
+            <h3>City hubs that answer when to go, where to stay</h3>
+            <p>Neighborhood guides, transportation tips, and what to book next for major destinations.</p>
+          </a>
+          <a href="/destinations/" class="category-card">
+            <h3>Explore all destinations</h3>
+            <p>Browse our complete guide collection organized by region and travel style.</p>
+          </a>
         </div>
+      </section>
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-          <!-- POPULAR NOW -->
-          <div class="card">
-            <p class="eyebrow">Popular Now</p>
-            <h4 style="margin: 0 0 16px 0; font-size: 14px;">Most Read</h4>
-            
-            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
-              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">1</span>
-              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Paris pages should cover neighborhoods first</div>
-            </div>
+      <section class="category-section">
+        <h2>Travel Cards</h2>
+        <div class="category-grid">
+          <a href="/cards/" class="category-card">
+            <h3>Points, miles, lounge access, and no-foreign-fee cards</h3>
+            <p>Cards that fit a trip-planning audience and maximize travel value.</p>
+          </a>
+          <a href="/cards/" class="category-card">
+            <h3>Explore all travel cards</h3>
+            <p>Compare rewards programs, benefits, and annual fees side-by-side.</p>
+          </a>
+        </div>
+      </section>
 
-            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
-              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">2</span>
-              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Tokyo travel intent is really itinerary intent</div>
-            </div>
-
-            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
-              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">3</span>
-              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Destination hubs beat random travel posts</div>
-            </div>
-          </div>
-
-          <!-- FEATURED HUB -->
-          <div class="card">
-            <p class="eyebrow">Featured Hub</p>
-            <h4 style="margin: 0 0 8px 0;">Destinations</h4>
-            <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--color-text-light);">City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
-            <a href="./destinations/index.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; text-decoration: none;">Explore</a>
-          </div>
-        </aside>
-      </div>
+      <section class="category-section">
+        <h2>Guides</h2>
+        <div class="category-grid">
+          <a href="/guides/" class="category-card">
+            <h3>Practical travel advice, packing lists, itinerary help</h3>
+            <p>Trip-planning explainers and step-by-step guides for first-time travelers.</p>
+          </a>
+          <a href="/guides/" class="category-card">
+            <h3>Explore all guides</h3>
+            <p>Browse tips on booking flights, hotels, activities, and travel insurance.</p>
+          </a>
+        </div>
       </section>
     </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <p class="sidebar-card-label">Popular Now</p>
+        <h3>Most Read</h3>
+        <div class="sidebar-item">
+          <a href="#1">Paris pages should cover neighborhoods first</a>
+          <div class="sidebar-meta">1. Most read</div>
+        </div>
+        <div class="sidebar-item">
+          <a href="#2">Tokyo travel intent is really itinerary intent</a>
+          <div class="sidebar-meta">2. Most read</div>
+        </div>
+        <div class="sidebar-item">
+          <a href="#3">Best travel cards for summer trips</a>
+          <div class="sidebar-meta">3. Most read</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-card-label">Featured Hub</p>
+        <h3>Destinations</h3>
+        <p style="font-size: 13px; color: var(--text-light); margin-bottom: 16px;">City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
+        <a href="/destinations/" class="hero-cta" style="display: block; text-align: center;">Explore Destinations →</a>
+      </div>
+    </aside>
   </div>
+
+  <section class="newsletter">
+    <h2>Get travel deals & guides</h2>
+    <p>Weekly destination guides, card updates, and travel deals in your inbox</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h4>Milegazette</h4>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Coverage</h4>
+        <a href="/destinations/">Destinations</a>
+        <a href="/cards/">Travel Cards</a>
+        <a href="/guides/">Guides</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
