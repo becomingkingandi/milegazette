@@ -53,8 +53,27 @@
 
       <div class="mainGrid">
         <div>
-          <!-- FEATURED STORIES CAROUSEL -->
-          <section id="featured">
+          <!-- FEATURED STORY (HERO) -->
+          <section id="featured" style="margin-bottom: 48px;">
+            <article style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+              <div style="background: var(--color-cream-200); min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
+                <div style="text-align: center;">
+                  <div style="font-size: 48px; margin-bottom: 8px;">📸</div>
+                  <div style="font-size: 14px;">Featured Story Image</div>
+                  <div style="font-size: 12px; color: var(--color-text-light); margin-top: 4px;">800×400 recommended</div>
+                </div>
+              </div>
+              <div>
+                <span class="badge" style="margin-bottom: 12px;">Featured</span>
+                <h2 style="margin: 12px 0 16px 0; line-height: 1.4;">Paris pages should cover neighborhoods first</h2>
+                <p style="margin: 0 0 16px 0; color: var(--color-text-medium);">The structure travelers want before they choose flights or hotels.</p>
+                <a href="./destinations/index.html" class="btn btn-primary">Read full story</a>
+              </div>
+            </article>
+          </section>
+
+          <!-- TOP STORIES GRID -->
+          <section id="top-stories">
             <div class="sectionHeader">
               <h2 class="sectionTitle">Top Stories</h2>
               <p class="meta">Latest coverage and in-depth analysis</p>
@@ -62,18 +81,19 @@
             <div class="contentGrid">
               
               <article class="card">
-                <h4 style="margin-top: 0;">Paris pages should cover neighborhoods first</h4>
-                <p style="margin-bottom: 0;">The structure travelers want before they choose flights or hotels.</p>
+                <div style="background: var(--color-cream-200); height: 150px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 12px;">
+                  📷 Story Image
+                </div>
+                <h4 style="margin: 0 0 8px 0;">Tokyo travel intent is really itinerary intent</h4>
+                <p style="margin: 0; font-size: 13px; color: var(--color-text-light);">Use guide pages to hold readers longer and create more booking opportunities.</p>
               </article>
 
               <article class="card">
-                <h4 style="margin-top: 0;">Tokyo travel intent is really itinerary intent</h4>
-                <p style="margin-bottom: 0;">Use guide pages to hold readers longer and create more booking opportunities.</p>
-              </article>
-
-              <article class="card">
-                <h4 style="margin-top: 0;">Destination hubs beat random travel posts</h4>
-                <p style="margin-bottom: 0;">The page architecture that builds trust and search visibility together.</p>
+                <div style="background: var(--color-cream-200); height: 150px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 12px;">
+                  📷 Story Image
+                </div>
+                <h4 style="margin: 0 0 8px 0;">Destination hubs beat random travel posts</h4>
+                <p style="margin: 0; font-size: 13px; color: var(--color-text-light);">The page architecture that builds trust and search visibility together.</p>
               </article>
             </div>
           </section>
