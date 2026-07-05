@@ -13,6 +13,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/hc-design.css">
+  <style>
+    .mainGrid { display: grid; grid-template-columns: 1fr 280px; gap: 32px; margin: 48px 0; }
+    .sidebar { position: sticky; top: 20px; height: fit-content; }
+    .sectionHeader { margin-bottom: 24px; }
+    .sectionTitle { margin: 0 0 8px 0; border-bottom: 2px solid var(--color-border-soft); padding-bottom: 12px; }
+    .meta { margin: 0; color: var(--color-text-light); }
+    .contentGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .categoryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .mainGrid { grid-template-columns: 1fr; } .sidebar { position: static; } .categoryGrid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
 </head>
 <body>
   <div class="shell">
@@ -20,9 +30,10 @@
       <div class="wrap">
         <div class="brand">Mile Gazette<small>Travel SEO and bookings</small></div>
         <nav class="nav">
-          <a href="#top">Top</a>
-          <a href="#latest">Latest</a>
-          <a href="#hubs">Hubs</a>
+          <a href="#top">Home</a>
+          <a href="/destinations/index.html">Destination hub</a>
+<a href="/cards/index.html">Travel cards</a>
+<a href="/guides/index.html">Trip guides</a>
           <a href="#newsletter">Subscribe</a>
         </nav>
       </div>
@@ -40,74 +51,101 @@
       </section>
 
 
-      <section class="section" id="latest">
-        <div class="sectionHeader">
-          <div>
-            <p class="eyebrow">Latest / start here</p>
-            <h2 class="sectionTitle">A stronger page map for organic traffic and retention</h2>
+      <div class="mainGrid">
+        <div>
+          <!-- FEATURED STORIES CAROUSEL -->
+          <section id="featured">
+            <div class="sectionHeader">
+              <h2 class="sectionTitle">Top Stories</h2>
+              <p class="meta">Latest coverage and in-depth analysis</p>
+            </div>
+            <div class="contentGrid">
+              
+              <article class="card">
+                <h4 style="margin-top: 0;">Paris pages should cover neighborhoods first</h4>
+                <p style="margin-bottom: 0;">The structure travelers want before they choose flights or hotels.</p>
+              </article>
+
+              <article class="card">
+                <h4 style="margin-top: 0;">Tokyo travel intent is really itinerary intent</h4>
+                <p style="margin-bottom: 0;">Use guide pages to hold readers longer and create more booking opportunities.</p>
+              </article>
+
+              <article class="card">
+                <h4 style="margin-top: 0;">Destination hubs beat random travel posts</h4>
+                <p style="margin-bottom: 0;">The page architecture that builds trust and search visibility together.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- CATEGORY HUBS -->
+          <section id="hubs">
+            <div class="sectionHeader">
+              <h2 class="sectionTitle">destinations, cards, and trip planning</h2>
+              <p class="meta">Organized by topic for easy browsing</p>
+            </div>
+            <div class="categoryGrid">
+              
+              <a href="./destinations/index.html" class="card" style="text-decoration: none; color: inherit;">
+                <h4 style="margin-top: 0; margin-bottom: 8px;">Destinations</h4>
+                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
+              </a>
+
+              <a href="./cards/index.html" class="card" style="text-decoration: none; color: inherit;">
+                <h4 style="margin-top: 0; margin-bottom: 8px;">Travel Cards</h4>
+                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">Points, miles, lounge access, and no-foreign-fee cards that fit a trip-planning audience.</p>
+              </a>
+
+              <a href="./guides/index.html" class="card" style="text-decoration: none; color: inherit;">
+                <h4 style="margin-top: 0; margin-bottom: 8px;">Guides</h4>
+                <p style="margin: 0; font-size: 12px; color: var(--color-text-light);">Practical travel advice, packing lists, itinerary help, and trip-planning explainers.</p>
+              </a>
+            </div>
+          </section>
+
+          <!-- NEWSLETTER -->
+          <section id="newsletter" style="background: var(--color-cream-200); padding: 32px; border-radius: 8px; text-align: center; margin-top: 48px;">
+            <h2 class="sectionTitle" style="border: none; padding: 0; margin: 0 0 12px 0;">Get the latest delivered</h2>
+            <p class="meta">Daily news, analysis, and insights</p>
+            <div style="display: flex; gap: 8px; max-width: 400px; margin: 20px auto;">
+              <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px; border: 1px solid var(--color-border-soft); border-radius: 4px;" />
+              <button class="btn btn-primary" style="white-space: nowrap; padding: 10px 16px;">Subscribe</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <!-- POPULAR NOW -->
+          <div class="card">
+            <p class="eyebrow">Popular Now</p>
+            <h4 style="margin: 0 0 16px 0; font-size: 14px;">Most Read</h4>
+            
+            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
+              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">1</span>
+              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Paris pages should cover neighborhoods first</div>
+            </div>
+
+            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
+              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">2</span>
+              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Tokyo travel intent is really itinerary intent</div>
+            </div>
+
+            <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-soft);">
+              <span class="badge" style="font-size: 10px; margin-bottom: 4px;">3</span>
+              <div style="font-size: 13px; font-weight: 600; line-height: 1.4;">Destination hubs beat random travel posts</div>
+            </div>
           </div>
-          <p class="meta">Each hub below is a real landing page, not a dead-end teaser.</p>
-        </div>
-        <div class="threeCol">
-          
-          <article class="miniCard">
-            <h4><a href="/destinations/index.html">Destination hub</a></h4>
-            <p>Open the destination hub and move deeper into the content cluster.</p>
-          </article>
 
-          <article class="miniCard">
-            <h4><a href="/cards/index.html">Travel cards</a></h4>
-            <p>Open the travel cards and move deeper into the content cluster.</p>
-          </article>
-
-          <article class="miniCard">
-            <h4><a href="/guides/index.html">Trip guides</a></h4>
-            <p>Open the trip guides and move deeper into the content cluster.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="hubs">
-        <div class="sectionHeader">
-          <div>
-            <p class="eyebrow">destinations, cards, and trip planning</p>
-            <h2 class="sectionTitle">Built to keep readers in the loop</h2>
+          <!-- FEATURED HUB -->
+          <div class="card">
+            <p class="eyebrow">Featured Hub</p>
+            <h4 style="margin: 0 0 8px 0;">Destinations</h4>
+            <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--color-text-light);">City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
+            <a href="./destinations/index.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; text-decoration: none;">Explore</a>
           </div>
-          <p class="meta">The main job is repeatable traffic, not random clicks.</p>
-        </div>
-        <div class="threeCol">
-          
-          <article class="miniCard">
-            <h4><a href="./destinations/index.html">Destinations</a></h4>
-            <p>City hubs that answer when to go, where to stay, how to get around, and what to book next.</p>
-          </article>
-
-          <article class="miniCard">
-            <h4><a href="./cards/index.html">Travel Cards</a></h4>
-            <p>Points, miles, lounge access, and no-foreign-fee cards that fit a trip-planning audience.</p>
-          </article>
-
-          <article class="miniCard">
-            <h4><a href="./guides/index.html">Guides</a></h4>
-            <p>Practical travel advice, packing lists, itinerary help, and trip-planning explainers.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="newsletter">
-        <div class="sectionHeader">
-          <div>
-            <p class="eyebrow">Subscribe</p>
-            <h2 class="sectionTitle">Turn readers into a list</h2>
-          </div>
-          <p class="meta">Segment by topic so the CRM can follow up with the right offers.</p>
-        </div>
-        <div class="twoCol">
-          <article class="miniCard">
-            <h4>Email capture</h4>
-            <p>Use the form in the live product to gather topic preferences, not just addresses.</p>
-          </article>
-        </div>
+        </aside>
+      </div>
       </section>
     </main>
   </div>
