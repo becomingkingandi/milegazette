@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Milegazette | Financial Insights for the Modern Traveler</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3f2",
+                    "primary": "#000000",
+                    "secondary-container": "#e3e1ec",
+                    "primary-fixed": "#e4e1e6",
+                    "outline": "#77767b",
+                    "surface-bright": "#fdf8f8",
+                    "inverse-surface": "#313030",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#e8e2d9",
+                    "inverse-on-surface": "#f4f0ef",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#47464b",
+                    "tertiary": "#000000",
+                    "on-tertiary-fixed": "#1d1b16",
+                    "on-primary-fixed": "#1b1b1e",
+                    "secondary-fixed": "#e3e1ec",
+                    "tertiary-fixed-dim": "#cbc6bd",
+                    "on-background": "#1c1b1c",
+                    "secondary-fixed-dim": "#c6c5cf",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f1eded",
+                    "on-primary-container": "#858387",
+                    "on-surface": "#1c1b1c",
+                    "tertiary-container": "#1d1b16",
+                    "inverse-primary": "#c8c5ca",
+                    "on-tertiary-fixed-variant": "#494640",
+                    "border-whisper": "rgba(226,232,240,0.5)",
+                    "surface-variant": "#e5e2e1",
+                    "surface-dim": "#ddd9d9",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary-container": "#63646c",
+                    "error-container": "#ffdad6",
+                    "canvas": "#F9FAFB",
+                    "surface-tint": "#5f5e61",
+                    "primary-container": "#1b1b1e",
+                    "accent-red": "#DC2626",
+                    "background": "#fdf8f8",
+                    "on-secondary-fixed-variant": "#46464e",
+                    "surface-container-high": "#ebe7e7",
+                    "primary-fixed-dim": "#c8c5ca",
+                    "secondary": "#5d5e66",
+                    "surface": "#FFFFFF",
+                    "on-tertiary-container": "#88837c",
+                    "on-primary-fixed-variant": "#47464a",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#1a1b22",
+                    "outline-variant": "#c8c5cb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "reading-width": "720px",
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "max-width": "1280px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-xl-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fdf8f8; /* background from config */
+            color: #1c1b1c; /* on-surface from config */
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .whisper-border {
+            border: 1px solid rgba(226,232,240,0.5);
+        }
+        .whisper-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        .whisper-shadow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #f1eded 25%, #e5e2e1 50%, #f1eded 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .pulse-dot {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b border-whisper">
+<div class="max-w-[1280px] mx-auto flex justify-between items-center px-gutter py-4">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">
+                Milegazette
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-accent-red pb-1" href="#">Premium Cards</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Travel Rewards</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Points &amp; Miles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Financial News</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 font-bold hover:opacity-80 transition-all duration-200 active:-translate-y-px">
+                    Subscribe
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-gutter mt-stack-lg">
+<!-- Hero Section: 2-Column Lead Article -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-lg">
+<article class="lg:col-span-8 group cursor-pointer">
+<div class="relative overflow-hidden aspect-[16/9] mb-stack-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A cinematic, high-angle shot of a luxury private jet cabin interior during golden hour. Soft amber light streams through the windows, illuminating polished mahogany surfaces and creamy leather seats. The aesthetic is extremely high-end and editorial, reflecting a minimalist yet opulent travel atmosphere. Deep shadows and bright highlights create a sophisticated visual depth with a focus on premium materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJZyiGxm2wZBFAQPuDjN60JW47JOpYb4OG2Jj_hXHpuF6ai0qH88MlGuGPHT5WFNGPZH8QZRTaneq-0PJpA4pq-_9B6JxWY_wSbWmiLWy-bNWwQyLUvPtapDBN4mtgGZTP07tZymvnw1P5_Wnm4X6nUdcrWMGhFnUn2HfW3OjwHvoOxvyfQZfUWVcmx-HV67ZuamZbxYR1ceWW9ELJZnfgN5GBpdWD8uMqJSIn38c96AKteFC41-78RcwStv1Bpbr9YyuENh601SzJ"/>
+<div class="absolute top-4 left-4 bg-accent-red text-white px-3 py-1 text-label-mono uppercase">Featured</div>
+</div>
+<div class="max-w-reading-width">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-accent-red rounded-full pulse-dot"></span>
+<span class="font-label-mono text-accent-red uppercase tracking-widest">Market Analysis</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl mb-4 leading-tight group-hover:text-accent-red transition-colors">The New Golden Age of Ultra-Premium Travel Rewards</h1>
+<p class="text-on-surface-variant mb-6 text-lg">As global travel patterns shift toward high-yield experiences, card issuers are entering an arms race for the premium consumer. Explore how exclusive lounge networks and bespoke concierge services are redefining loyalty in 2024.</p>
+<button class="flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1 hover:border-accent-red hover:text-accent-red transition-all">
+                        Read the Full Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Sidebar Trending (Asymmetric touch) -->
+<aside class="lg:col-span-4 flex flex-col gap-8">
+<h2 class="font-label-mono uppercase tracking-[0.2em] border-b border-primary pb-2">Latest Updates</h2>
+<div class="space-y-6">
+<div class="flex flex-col gap-2 group">
+<span class="font-label-mono text-accent-red">01</span>
+<h3 class="font-bold text-xl group-hover:underline decoration-accent-red underline-offset-4">Why the 100k Point Sign-Up Bonus is Becoming the New Standard</h3>
+<p class="text-on-surface-variant text-sm">Market dynamics force major banks to increase initial incentives.</p>
+</div>
+<div class="flex flex-col gap-2 group">
+<span class="font-label-mono text-accent-red">02</span>
+<h3 class="font-bold text-xl group-hover:underline decoration-accent-red underline-offset-4">Top 5 European Destinations to Maximize Your Transferable Points</h3>
+<p class="text-on-surface-variant text-sm">The best off-peak redemptions for luxury hotel stays.</p>
+</div>
+<div class="flex flex-col gap-2 group">
+<span class="font-label-mono text-accent-red">03</span>
+<h3 class="font-bold text-xl group-hover:underline decoration-accent-red underline-offset-4">The Federal Reserve's Impact on Travel Credit Interest Rates</h3>
+<p class="text-on-surface-variant text-sm">Navigating the changing financial landscape for high-limit accounts.</p>
+</div>
+</div>
+</aside>
+</section>
+<!-- Asymmetric Grid Row 1: 1 Large + 2 Small -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-stack-lg">
+<div class="lg:col-span-6 whisper-border p-6 bg-white whisper-shadow flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="border border-accent-red text-accent-red px-3 py-1 font-label-mono text-xs uppercase tracking-tighter">Point Strategy</span>
+<span class="text-on-surface-variant font-label-mono text-xs">8 MIN READ</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-4">Optimizing Business Class Redemptions for Solo Travelers</h2>
+<p class="text-on-surface-variant mb-6">A deep dive into the routing rules of Star Alliance partners and how to find hidden 'sweet spot' availability for trans-pacific routes.</p>
+</div>
+<div class="h-64 overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-contrast, minimalist photograph of a modern airport terminal's clean architectural lines. The scene is bathed in bright daylight with a palette of whites and soft greys. One single, blurred figure walks toward a large glass wall, creating a sense of scale and movement. The composition is airy and editorial, focusing on space and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_-R1-hb8Tebccb69RSqE-tESEx-E6NFwT7ZxflurbOs-eci3Tyn9puWeS9oNerXAWMHXu3K_sQidnEZ9MY_30VP6CtXg5tWDCqj5c8taO4yjlsTPNInyfr9JOLDbN3eeWnBzw6weNKLX_AhRmmfkGKZZg7-qD264Xxp7BCNptmAlghca25QAcqoAtxCpTDmOme8QAE6oDXAjpgn7WPhjgMBH4MqyJHB4gDGkbvwvjzY-x9T3XHvcgBeefE_hJ7vyOfWFwMzbFUOlO"/>
+</div>
+<button class="bg-primary text-on-primary w-fit px-8 py-3 font-bold hover:bg-accent-red transition-colors active:-translate-y-px">
+                    Read More
+                </button>
+</div>
+<div class="lg:col-span-3 flex flex-col gap-gutter">
+<div class="whisper-border p-6 bg-white whisper-shadow h-full group">
+<span class="font-label-mono text-accent-red text-xs mb-2 block">QUICK TAKE</span>
+<h3 class="font-bold text-xl mb-3">Marriott Bonvoy Devaluation: What You Need to Know</h3>
+<p class="text-on-surface-variant text-sm mb-4">Adjusting your redemption strategy for the upcoming category changes.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">east</span>
+</div>
+<div class="whisper-border p-6 bg-white whisper-shadow h-full group">
+<span class="font-label-mono text-accent-red text-xs mb-2 block">INSIDER</span>
+<h3 class="font-bold text-xl mb-3">New Amex Centurion Lounge Opening at EWR</h3>
+<p class="text-on-surface-variant text-sm mb-4">A first look at the amenities and local chef partnership.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">east</span>
+</div>
+</div>
+<div class="lg:col-span-3 whisper-border p-6 bg-white whisper-shadow h-full group">
+<div class="h-48 overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of a sleek, matte black metal credit card resting on a white marble surface. The lighting is crisp, highlighting the engraved textures and the silver chip. The aesthetic is professional, financial, and minimalist. Soft shadows define the edges of the card against the elegant stone background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDENE8e2O0bT4d7VxOSapdZB91Lkj3q-ttjTK_WILoFABpaJJPb780E-OkWugp4cRlFbSSrUISxD_c1uZZC7lN4WqT2sdI-B4xz2JoAwAXxAAdyWEmvORSAgYDdsVLkH4hoiNOm0Z1ZazLr6FfOEoKx91OT-m1JvC-X6Gd4KgGRmi8TL29zVCuThhUWA5D0kIBD9kTkl6v-TxeiNHDjRGsJ-bGFUK_4zOjUlGZYjFxkpdwEmDHmVWYFKk9hZeFA8dNlxGPa3L-ZHbcL"/>
+</div>
+<span class="font-label-mono text-accent-red text-xs mb-2 block">HARDWARE</span>
+<h3 class="font-bold text-xl mb-3">Metal vs. Plastic: The Psychological Edge of Premium Cards</h3>
+<p class="text-on-surface-variant text-sm mb-6">Does the weight of your card actually change how you spend? Behavioral economists weigh in.</p>
+<div class="mt-auto flex items-center gap-2 font-bold text-sm">
+                    VIEW DISCUSSION <span class="material-symbols-outlined text-sm">chat_bubble</span>
+</div>
+</div>
+</section>
+<!-- Newsletter / Editorial Break -->
+<section class="bg-primary-container text-on-primary py-stack-lg px-gutter mb-stack-lg relative overflow-hidden">
+<div class="max-w-reading-width mx-auto text-center relative z-10">
+<h2 class="font-headline-xl text-headline-lg text-white mb-4">Financial Clarity for the Journey</h2>
+<p class="text-on-primary-container text-lg mb-8">Join 45,000+ modern travelers receiving our weekly breakdown of point valuations and market shifts.</p>
+<form class="flex flex-col md:flex-row gap-4 justify-center">
+<input class="bg-transparent border border-outline px-6 py-3 text-white focus:border-accent-red outline-none min-w-[300px]" placeholder="email@address.com" type="email"/>
+<button class="bg-accent-red text-white px-10 py-3 font-bold hover:opacity-90 transition-opacity">
+                        Join Milegazette
+                    </button>
+</form>
+</div>
+<!-- Background Decorative Text -->
+<div class="absolute -bottom-10 -right-10 font-headline-xl text-[120px] opacity-10 font-bold select-none whitespace-nowrap">MILEGAZETTE INSIGHTS</div>
+</section>
+<!-- Asymmetric Grid Row 2: 2 Small + 1 Large -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-stack-lg">
+<div class="lg:col-span-3 whisper-border p-6 bg-white whisper-shadow h-full group">
+<span class="font-label-mono text-accent-red text-xs mb-2 block">LIFESTYLE</span>
+<h3 class="font-bold text-xl mb-3">Best Airport Spas for a 2-Hour Layover</h3>
+<p class="text-on-surface-variant text-sm mb-4">From Doha to Singapore, where to find genuine relaxation between flights.</p>
+<div class="h-32 overflow-hidden mt-4">
+<img class="w-full h-full object-cover" data-alt="A serene, minimalist spa interior featuring light wood textures and a small stone water basin. Soft, diffused lighting creates a calm, editorial atmosphere. The color palette is composed of warm beiges, soft creams, and clean whites. The overall mood is peaceful and luxurious, reflecting high-end travel wellness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRVCb-OwNQ5KkTKqaAXydUDf78YrmgKffaKViuZgOeH1_hzDBQoE8quVC168Apjb02Js_y3d08DxbyfEPy_Lb3dOzgihUu27koBy5aQXl6hJrEiex5ltUpUODgXEe_GCtODwGF33F60DMCcG8UTsnDKntcf42rqrt7gbz6KM348ZIl-rXRlWkAipmK-i2DbHFRLdBttfS9A1CvDJvbRE_LAFN6e0fOIp67ud_WGP4TPDe-cl9TWSAsLPqp4fKHgI_m4clp4Q7f9GpO"/>
+</div>
+</div>
+<div class="lg:col-span-3 whisper-border p-6 bg-white whisper-shadow h-full group">
+<span class="font-label-mono text-accent-red text-xs mb-2 block">ECONOMY</span>
+<h3 class="font-bold text-xl mb-3">Is the 'Budget Luxury' Trend Here to Stay?</h3>
+<p class="text-on-surface-variant text-sm mb-4">Analyzing the rise of premium-economy-only airlines across the Atlantic.</p>
+<span class="material-symbols-outlined text-primary mt-4 group-hover:translate-x-2 transition-transform">trending_up</span>
+</div>
+<div class="lg:col-span-6 whisper-border p-0 bg-white whisper-shadow overflow-hidden group grid grid-cols-1 md:grid-cols-2">
+<div class="p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-accent-red text-xs uppercase mb-4 block">Cover Story</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">The Future of Digital Identity in Global Transit</h2>
+<p class="text-on-surface-variant text-sm">Biometrics are replacing boarding passes. What does this mean for data privacy and the speed of travel?</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold mt-8 hover:text-accent-red transition-colors">
+                        Explore Feature <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="h-full relative">
+<img class="w-full h-full object-cover" data-alt="A close-up, abstract shot of a digital biometric scanner with a subtle blue glow against a dark, professional background. The image has a clean, high-tech editorial feel with sharp focus and shallow depth of field. The palette is dominated by dark charcoals and glowing electric blues, conveying innovation and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0fFJOLnlJ3LxfkQ1lthLx6U49ord9MLkxdGnYKgnsj_OaxieSksRyV9VLZy_BtgJ59hitQ3vnCwEi6GP802llo0xsnVQDfVeTkFIQ0KXZ4VsSRdjeNg9oKZ8_9-wPy5oGSPEJKfm_Sqm-Z_IrTtlFE8INo4Y9BvYApvMfyp158mb_2ifbgHW9f4le6dCv5-ojZT6hELERpZZ7s9olpEgBlrx42DYKNTNd_IfaiCVS9gzy6Nfizp3PrTizM6PRmLjEbOUN6VQiyCZG"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-low border-t border-whisper">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter px-gutter py-stack-lg">
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary mb-4">Milegazette</div>
+<p class="text-on-surface-variant max-w-sm mb-8">© 2024 Milegazette. All rights reserved. Financial insights for the modern traveler. Expert analysis on rewards, markets, and luxury lifestyle.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center border border-outline hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-outline hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-outline hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-primary">Company</h4>
+<a class="text-on-surface-variant hover:text-primary hover:underline decoration-accent-red underline-offset-4 transition-all" href="#">About Milegazette</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline decoration-accent-red underline-offset-4 transition-all" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-primary">Legal</h4>
+<a class="text-on-surface-variant hover:text-primary hover:underline decoration-accent-red underline-offset-4 transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline decoration-accent-red underline-offset-4 transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB for quick access to latest alerts (Conditional Logic) -->
+<div class="fixed bottom-8 right-8 z-40" id="fab">
+<button class="bg-accent-red text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined">notifications_active</span>
+<div class="absolute right-16 bg-primary text-white px-4 py-2 text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                3 New Points Alerts
+            </div>
+</button>
+</div>
+<script>
+        // Micro-interactions and spring-like effects
+        document.querySelectorAll('.whisper-shadow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-6px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simple scroll behavior for top bar
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.classList.add('-translate-y-full');
+            } else {
+                header.classList.remove('-translate-y-full');
+            }
+            header.classList.toggle('shadow-sm', currentScroll > 0);
+            header.style.transition = 'transform 0.3s ease-in-out';
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>
