@@ -1,163 +1,371 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mile Gazette — Smarter points, cards and award travel</title>
-  <meta name="description" content="Independent travel-rewards intelligence: card analysis, award strategy, destination guides and practical tools.">
-  <link rel="canonical" href="https://milegazette.com/">
-  <meta property="og:title" content="Mile Gazette — Make every point count">
-  <meta property="og:description" content="Clear, independent intelligence for points, cards and award travel.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://milegazette.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/site.css">
-  <script src="/site.js" defer></script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"Mile Gazette","url":"https://milegazette.com/","description":"Independent travel-rewards intelligence for points, cards and award travel.","publisher":{"@type":"Organization","name":"Mile Gazette","url":"https://milegazette.com/"}}
-  </script>
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mile Gazette | Financial Intelligence</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#82f5c1",
+                    "background": "#fbf8ff",
+                    "surface-variant": "#e3e1ec",
+                    "surface-container-highest": "#e3e1ec",
+                    "outline": "#747878",
+                    "primary-container": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1a1b22",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e5e2e1",
+                    "surface": "#fbf8ff",
+                    "inverse-surface": "#2f3038",
+                    "surface-container": "#eeedf7",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-primary-container": "#858383",
+                    "on-error": "#ffffff",
+                    "primary": "#000000",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#444748",
+                    "on-tertiary-fixed-variant": "#464746",
+                    "surface-container-low": "#f4f2fd",
+                    "surface-bright": "#fbf8ff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#e3e2e1",
+                    "surface-tint": "#5f5e5e",
+                    "surface-dim": "#dad9e3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002114",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-container-high": "#e8e7f1",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-container": "#00714e",
+                    "secondary-fixed-dim": "#68dba9",
+                    "secondary": "#006c4a",
+                    "tertiary-container": "#1a1c1c",
+                    "on-primary-fixed": "#1c1b1b",
+                    "tertiary-fixed-dim": "#c7c6c5",
+                    "inverse-primary": "#c8c6c5",
+                    "secondary-fixed": "#85f8c4",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "inverse-on-surface": "#f1effa",
+                    "on-tertiary-container": "#838483",
+                    "on-background": "#1a1b22",
+                    "tertiary": "#000000",
+                    "on-secondary-fixed-variant": "#005137"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "grid-margin": "2rem",
+                    "sidebar-width": "300px",
+                    "grid-gutter": "1rem",
+                    "content-width-max": "1280px",
+                    "section-gap": "4rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-caps": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "headline-sm": ["Playfair Display"],
+                    "data-tabular": ["JetBrains Mono"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Existing SEO publisher compatibility: the wrapper is layout-neutral
+           until the pipeline inserts new article cards. */
+        .threeCol {
+            display: contents;
+        }
+        .miniCard {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f7f3f2;
+            border: 1px solid #77767b;
+        }
+        .miniCard h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            line-height: 1.25;
+        }
+        .miniCard h4:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        body { @apply bg-surface text-on-surface; }
+        .leaderboard-container { width: 728px; height: 90px; }
+        @media (max-width: 768px) { .leaderboard-container { width: 100%; height: auto; min-height: 50px; } }
+    </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="nav-shell">
-      <a class="wordmark" href="/" aria-label="Mile Gazette home">MILE <span>GAZETTE</span></a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
-      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-        <a href="/cards/">Cards</a>
-        <a href="/guides/">Guides</a>
-        <a href="/destinations/">Destinations</a>
-        <a href="/tools/">Tools</a>
-        <a class="nav-cta" href="#newsletter">Get the briefing</a>
-      </nav>
-    </div>
-  </header>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top Leaderboard Ad Slot -->
+<div class="bg-surface-container-low py-4 flex justify-center border-b border-outline-variant">
+<div class="leaderboard-container bg-surface-variant flex items-center justify-center relative border border-outline overflow-hidden">
+<span class="absolute top-1 left-1 font-label-caps text-[10px] text-on-surface-variant uppercase">ADVERTISEMENT</span>
+<div class="flex items-center gap-4 px-6">
+<span class="material-symbols-outlined text-primary text-4xl">account_balance</span>
+<div class="flex flex-col">
+<p class="font-label-caps text-label-caps text-primary">THE PREMIER PLATINUM RESERVE</p>
+<p class="text-xs italic text-on-surface-variant">Earn 100k Bonus Miles. Annual Fee Applies.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-caps text-[10px] px-4 py-2 hover:opacity-90">APPLY NOW</button>
+</div>
+</div>
+</div>
+<!-- TopNavBar -->
+<header class="bg-surface docked full-width top-0 border-b border-outline">
+<div class="flex flex-col w-full max-w-content-width-max mx-auto px-grid-margin py-4">
+<div class="flex justify-between items-center mb-4">
+<h1 class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">MILE GAZETTE</h1>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">account_circle</span>
+</div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-4 py-2 transition-opacity hover:opacity-80">Today's Edition</button>
+</div>
+</div>
+<nav class="flex gap-8 overflow-x-auto no-scrollbar py-2">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps whitespace-nowrap" href="#">Top Picks</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors whitespace-nowrap" href="#">News</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors whitespace-nowrap" href="#">Compare</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors whitespace-nowrap" href="#">Guides</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors whitespace-nowrap" href="#">Credit Scores</a>
+</nav>
+</div>
+</header>
+<main class="max-w-content-width-max mx-auto px-grid-margin py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-grid-gutter">
+<!-- Main Content Area (8 Columns) -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Headline Article -->
+<article class="group cursor-pointer">
+<div class="border-t-4 border-primary pt-2 mb-4">
+<span class="font-label-caps text-label-caps text-primary">EDITORIAL | PREMIUM LIFESTYLE</span>
+</div>
+<div class="relative overflow-hidden mb-6 aspect-[16/9]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxury perspective shot of five premium metallic credit cards fanned out on a dark mahogany desk. The lighting is dramatic and moody, highlighting the sharp edges and reflective surfaces of the cards. The background is a blurred, high-end office with leather accents and a city skyline visible through a window. The overall aesthetic is professional, sophisticated, and authoritative financial journalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClS_qtTqS9bjguJRu41YsnLzrhNIIEGk46hJBhhAmTLIm422Ru0sGIKLfbHisUuc8aho88AVh9lEMs8HQ4llSzS0-p1I333-QfX_VDkBOxGQuKopw39vXKPevjLk0DINRlS6IrWzWIKW57LjahQuUBWfK0t09l8ieryKmpJPbSePT9BmNeMYcHLOGNprGOLL9NJmMEHarAybhMCJdrr2klIPPBJyC5PbQPJmHX9qEtvlwmBfmMyp5Gk4mFmZ1PwIAx0a6jPto0GjD7">
+</div>
+<h2 class="font-headline-md text-[42px] leading-[48px] md:text-display-lg md:leading-[64px] mb-4 hover:underline decoration-2 underline-offset-4">Top 5 Premium Cards of the Month: The Definitive Ranking for High-Net-Worth Travelers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">As global travel returns to pre-pandemic volumes, the landscape of luxury benefits has shifted. Our editorial team spent 300 hours analyzing point valuations, lounge access quality, and concierge responsiveness to bring you the top contenders for 2024.</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-bold">CC</div>
+<div>
+<p class="font-label-caps text-label-caps">BY MARCUS STERLING</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Senior Credit Analyst • 4 MIN READ</p>
+</div>
+</div>
+</article>
+<!-- Grid of Secondary Articles -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-outline pt-8">
+<!-- The legacy SEO pipeline inserts each new article batch here. -->
+<div class="threeCol">
+</div>
+<!-- Article 1 -->
+<article class="flex flex-col gap-4 border-r-0 md:border-r border-outline-variant pr-0 md:pr-8">
+<div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, data-focused visualization showing a descending graph line against a charcoal background. The graph line is glowing slightly in a soft green, representing falling interest rates. Surrounding the graph are scattered numeric values in a crisp JetBrains Mono font. The lighting is high-key and modern, reflecting a sense of optimistic financial news and precision data analysis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClnObopjg9L-2q_8Gn4inTfKjmmexlXafXkiAf0sTF6XkGRkgwn9gCPOfkxTWpEFt5cYuW99QOXNU8XR_9TtJAZK9RpUIydZE5Fj_wkMRyaJyvWncOizKA4h5fQQSvOcT8aRRrQEBzjHFXgWy4GQpe0wTuJZnJsFJXfX-2ilCRpdJlNWVtNoIXDZwml8dI9CFu-JnkUZolRsm2RCervu3ZncfTuy4v4Og_2T1JyzKxQZmUCPPvfeWKcNIGvmkZJ3tlzSH61bZV-lv9">
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-primary bg-secondary-container px-2 py-1 uppercase">Breaking News</span>
+<h3 class="font-headline-sm text-headline-sm mt-2 hover:text-primary transition-colors">APR Rates Hitting Record Lows Across Major Banks</h3>
+<p class="mt-2 text-on-surface-variant">The Federal Reserve's latest signal has triggered a wave of competitive rate slashing among Tier 1 lenders.</p>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="flex flex-col gap-4">
+<div class="w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist travel scene showing a pair of sleek noise-canceling headphones, a leather passport holder, and a luxury carry-on bag resting on a pristine airport lounge table. The background shows the blurred wing of an aircraft at sunset. The image uses a palette of bone white, muted grays, and deep blacks to maintain a high-end editorial feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfI5RI8_s1Odq_ExxbxG3BrfacgqCQ1zxcxGkmv13JIc3NNF6YlHB_o8ffYbJ-b9ubJ3ZitEpgUpN-eqS1ky_sBFjYrXk-N9V0N2qbnN4ZyjXEgiLK5x5B6q1bxiZu1XiQjO9UnmCawXumqgLWJ-TYusnYLHAC8jHIPpf4oogdymbMRE2pUY5jGv9A61oU7WjDbErFlVr7VAnLDwY1nXgCmyLN1giv3dnCxifNyjHIf0KVF8rxfGQNXz0P7XtDTZCUsL436-ydmEjx">
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Travel Logistics</span>
+<h3 class="font-headline-sm text-headline-sm mt-2 hover:text-primary transition-colors">Travel Hacks for 2024: Maximizing Transatlantic Points</h3>
+<p class="mt-2 text-on-surface-variant">New alliance partnerships are opening "sweet spot" redemptions that many cardholders are missing.</p>
+</div>
+</article>
+</div>
+<!-- Sponsored Card Block (Interspersed Content) -->
+<div class="bg-surface-container-low border-2 border-primary p-8 flex flex-col md:flex-row gap-8 items-center relative">
+<span class="absolute top-2 right-2 font-label-caps text-[10px] text-outline italic">SPONSORED OFFER</span>
+<div class="w-48 h-32 flex-shrink-0 bg-primary-container rounded shadow-lg transform -rotate-3 hover:rotate-0 transition-transform duration-300 flex items-end p-4 border border-outline">
+<div class="text-on-primary-container font-label-caps text-[10px]">MILE GAZETTE ELITE CARD</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-sm text-headline-sm mb-2">The 'Mile Gazette Elite' Black Edition</h4>
+<p class="text-on-surface-variant mb-4">Exclusive for Mile Gazette subscribers: Get a 0% introductory APR for 18 months and 5x points on all financial news subscriptions.</p>
+<div class="flex flex-wrap gap-4 items-center">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase">Annual Fee</span>
+<span class="font-data-tabular text-data-tabular">$450</span>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase">Credit Score</span>
+<span class="font-data-tabular text-data-tabular">740+</span>
+</div>
+<button class="ml-auto bg-primary text-on-primary font-label-caps text-label-caps px-8 py-3 hover:bg-on-surface-variant transition-colors">VIEW TERMS</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar (4 Columns) -->
+<aside class="lg:col-span-4 space-y-12 border-l border-outline-variant pl-0 lg:pl-8">
+<!-- Market Watch Widget -->
+<div class="bg-surface-container-high p-6 border border-primary">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-label-caps text-label-caps font-bold">MARKET WATCH</h3>
+<span class="flex items-center gap-1 text-[10px] font-data-tabular animate-pulse"><span class="w-2 h-2 rounded-full bg-secondary"></span> LIVE</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-body-md">Fed Funds Rate</span>
+<span class="font-data-tabular text-secondary">5.25% <span class="material-symbols-outlined text-xs align-middle">trending_down</span></span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-body-md">Avg. 30Y Fixed</span>
+<span class="font-data-tabular text-primary">6.82% <span class="material-symbols-outlined text-xs align-middle">remove</span></span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-body-md">Prime Rate</span>
+<span class="font-data-tabular text-secondary">8.50% <span class="material-symbols-outlined text-xs align-middle">trending_down</span></span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-body-md">Avg. Card APR</span>
+<span class="font-data-tabular text-error">24.59% <span class="material-symbols-outlined text-xs align-middle">trending_up</span></span>
+</div>
+</div>
+<p class="mt-4 text-[10px] text-on-surface-variant italic">Data updated as of 14:32 EST. All figures represent nationwide averages.</p>
+</div>
+<!-- Most Read List -->
+<div>
+<h3 class="font-label-caps text-label-caps mb-6 border-b border-primary pb-2">MOST READ</h3>
+<div class="space-y-8">
+<div class="flex gap-4 group cursor-pointer">
+<span class="font-headline-md text-surface-variant group-hover:text-primary transition-colors">01</span>
+<div>
+<h4 class="font-headline-sm text-sm leading-tight group-hover:underline">The Secret to Boosting Your Score 50 Points in 30 Days</h4>
+<p class="text-xs text-on-surface-variant mt-1 uppercase">CREDIT STRATEGY</p>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<span class="font-headline-md text-surface-variant group-hover:text-primary transition-colors">02</span>
+<div>
+<h4 class="font-headline-sm text-sm leading-tight group-hover:underline">Why 2024 is the Year of the No-Fee Cashback Card</h4>
+<p class="text-xs text-on-surface-variant mt-1 uppercase">MARKET TRENDS</p>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<span class="font-headline-md text-surface-variant group-hover:text-primary transition-colors">03</span>
+<div>
+<h4 class="font-headline-sm text-sm leading-tight group-hover:underline">Lounge Access Face-off: Sapphire Reserve vs. Amex Platinum</h4>
+<p class="text-xs text-on-surface-variant mt-1 uppercase">CARD COMPARISON</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Print Newsletter Block -->
+<div class="border-4 border-primary p-6 text-center">
+<span class="material-symbols-outlined text-4xl mb-4">mail</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">The Sunday Edition</h3>
+<p class="text-sm mb-6">Our curated weekly digest of the global credit markets, delivered to your doorstep or inbox.</p>
+<div class="space-y-3">
+<input class="w-full border-primary focus:ring-0 text-sm py-3 px-4 outline-none" placeholder="Email Address" type="email">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 hover:bg-on-surface-variant transition-colors">SUBSCRIBE TO PRINT</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface w-full mt-section-gap border-t-2 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter max-w-content-width-max mx-auto px-grid-margin py-12">
+<div class="md:col-span-1">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-4">MILE GAZETTE</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">Providing institutional-grade credit intelligence since 1994. Our commitment is to the reader, not the lender.</p>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps mb-4">RESOURCES</h4>
+<ul class="space-y-2">
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Editorial Standards</a></li>
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ad Disclosure</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps mb-4">COMPANY</h4>
+<ul class="space-y-2">
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Compliance</a></li>
+<li class=""><a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps mb-4">CONNECT</h4>
+<div class="flex gap-4">
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">rss_feed</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">alternate_email</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">share</a>
+</div>
+</div>
+</div>
+<div class="max-w-content-width-max mx-auto px-grid-margin py-6 border-t border-outline-variant text-center">
+<p class="font-body-md text-xs text-on-surface-variant">© 2024 Mile Gazette Financial Media Group. All editorial content is independent and objective.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for market watch
+        document.querySelectorAll('.font-data-tabular').forEach(ticker => {
+            ticker.addEventListener('mouseenter', () => {
+                ticker.style.opacity = '0.7';
+            });
+            ticker.addEventListener('mouseleave', () => {
+                ticker.style.opacity = '1';
+            });
+        });
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Independent points intelligence</p>
-        <h1>Make every point <em>count.</em></h1>
-        <p class="hero-deck">Card strategy, award availability and trip planning—translated into decisions you can use.</p>
-        <div class="button-row">
-          <a class="button button-primary" href="/cards/">Compare travel cards</a>
-          <a class="text-link" href="/guides/">Read the field guides <span aria-hidden="true">↗</span></a>
-        </div>
-        <dl class="trust-strip">
-          <div><dt>Updated</dt><dd>Weekly</dd></div>
-          <div><dt>Focus</dt><dd>Real-world value</dd></div>
-          <div><dt>Approach</dt><dd>Editorially independent</dd></div>
-        </dl>
-      </div>
-      <a class="hero-visual" href="/cards/emerald-reserve/">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdJXpiUp-xBn8eiJm72jxmS-Vtk3Fu26eRXmAiUHbSivoVyNnD3D2djs8Fin6uoNJ60muHBN7RLShs_uOKWpnuq76hCs59uzLrxQ4A899bf1PEMV0kYM652URY_wWZUMog5jcsoed16HsprjElP3Ml98Z1_2-_jq_0PXvfvTR824oloT_fnet3z2QgirWkQjV06ncS9DczA4Ml3VgEwHV3BkJ6cqTWGsAEljQqvsl-WBvx-UhY1KwDiRvO7FMluw12cKH2KRzrebQd" alt="Emerald travel rewards card on a light surface">
-        <div class="visual-caption"><span>Card intelligence</span><strong>Is a premium annual fee worth it?</strong><small>See the value breakdown →</small></div>
-      </a>
-    </section>
+        // Simple smooth scroll behavior
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Navigating to:', this.innerText);
+            });
+        });
+    </script>
 
-    <section class="ticker" aria-label="Illustrative points valuations">
-      <span class="ticker-label">Valuation desk</span>
-      <div><b>Amex MR</b><span>2.0¢</span></div>
-      <div><b>Chase UR</b><span>2.1¢</span></div>
-      <div><b>Hyatt</b><span>1.7¢</span></div>
-      <div><b>Capital One</b><span>1.8¢</span></div>
-      <small>Editorial estimates—not cash value</small>
-    </section>
 
-    <section class="section-shell feature-section">
-      <div class="section-heading">
-        <div><p class="eyebrow">This week’s briefing</p><h2>Strategy before hype.</h2></div>
-        <a class="text-link" href="/guides/">View all guides →</a>
-      </div>
-      <div class="editorial-grid">
-        <article class="lead-story">
-          <div class="story-number">01</div>
-          <p class="kicker">Award strategy</p>
-          <h3><a href="/cards/best-cards-should-be-matched-to-trip-type/">Match the card to the trip—not the trend</a></h3>
-          <p>Availability changes quickly. A resilient plan starts with routes, partner programs and a cash-price ceiling—not a speculative transfer.</p>
-          <a class="text-link" href="/cards/best-cards-should-be-matched-to-trip-type/">Read the analysis →</a>
-        </article>
-        <div class="story-stack">
-          <article>
-            <div class="story-number">02</div>
-            <p class="kicker">Card strategy</p>
-            <h3><a href="/cards/best-cards-should-be-matched-to-trip-type.html">Match the card to the trip—not the trend</a></h3>
-            <p>Start with where you spend and how you redeem.</p>
-          </article>
-          <article>
-            <div class="story-number">03</div>
-            <p class="kicker">Destination desk</p>
-            <h3><a href="/destinations/tokyo-travel-intent-is-really-itinerary-intent.html">Tokyo intent is itinerary intent</a></h3>
-            <p>Turn a destination wish into a bookable sequence.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-shell latest-section" id="latest">
-      <div class="section-heading">
-        <div><p class="eyebrow">Latest intelligence</p><h2>New from the desks.</h2></div>
-        <a class="text-link" href="/guides/">Browse all guides →</a>
-      </div>
-      <!-- Legacy SEO publisher inserts each new article batch immediately below this line. -->
-      <div class="threeCol">
-        <article class="miniCard">
-          <p class="kicker">Guide desk</p>
-          <h4><a href="/guides/best-time-to-visit-bangkok-month-by-month-guide/">Best time to visit Bangkok: a month-by-month guide</a></h4>
-          <p>Compare weather, crowds and typical price patterns before choosing dates.</p>
-        </article>
-        <article class="miniCard">
-          <p class="kicker">Card desk</p>
-          <h4><a href="/cards/best-cards-should-be-matched-to-trip-type/">Match a travel card to the trip you actually take</a></h4>
-          <p>A practical framework for comparing fees, rewards and benefits.</p>
-        </article>
-        <article class="miniCard">
-          <p class="kicker">Destination desk</p>
-          <h4><a href="/destinations/portland-maine-weekend-guide-budget-tips/">A practical weekend framework for Portland, Maine</a></h4>
-          <p>Plan lodging, transport and food as one realistic trip budget.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="dark-section">
-      <div class="section-shell">
-        <div class="section-heading light">
-          <div><p class="eyebrow">Decision tools</p><h2>Do the math before you book.</h2></div>
-          <a class="text-link" href="/tools/">Open the tool desk →</a>
-        </div>
-        <div class="tool-grid">
-          <a class="tool-card tool-featured" href="/tools/#points-value"><span class="tool-index">01 / VALUE</span><h3>Points value calculator</h3><p>Compare the cents-per-point value of an award booking with its cash alternative.</p><strong>Calculate a redemption ↗</strong></a>
-          <a class="tool-card" href="/tools/#fees"><span class="tool-index">02 / FEES</span><h3>Hidden-fee check</h3><p>Surface carrier surcharges before a “free” flight becomes an expensive one.</p><strong>Check the total ↗</strong></a>
-          <a class="tool-card" href="/cards/"><span class="tool-index">03 / CARDS</span><h3>Card comparison</h3><p>Compare annual fees, credits and earning rates on one honest scorecard.</p><strong>Compare cards ↗</strong></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-shell category-band">
-      <p class="eyebrow">Explore by desk</p>
-      <div class="category-links">
-        <a href="/destinations/"><span>01</span><strong>Destinations</strong><small>Routes, neighborhoods and on-the-ground decisions</small></a>
-        <a href="/cards/"><span>02</span><strong>Cards</strong><small>Fees, earning rates and transfer partners</small></a>
-        <a href="/guides/"><span>03</span><strong>Guides</strong><small>Practical playbooks for points and travel</small></a>
-      </div>
-    </section>
-
-    <section id="newsletter" class="newsletter-section">
-      <div><p class="eyebrow">The weekly briefing</p><h2>One useful move.<br>No points noise.</h2></div>
-      <form class="newsletter-form" data-newsletter>
-        <label for="newsletter-email">Email address</label>
-        <div class="form-row"><input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><button class="button button-primary" type="submit">Join free</button></div>
-        <p class="form-note">A concise weekly strategy note. Unsubscribe anytime.</p>
-        <p class="form-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div><a class="wordmark" href="/">MILE <span>GAZETTE</span></a><p>Independent intelligence for better travel decisions.</p></div>
-    <nav aria-label="Footer navigation"><a href="/about/">About</a><a href="/methodology/">Methodology</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
-    <p class="disclosure">Mile Gazette may receive compensation when readers use certain card links. Editorial opinions remain our own. Card terms can change; verify details with the issuer.</p>
-    <p class="copyright">© <span data-year></span> Mile Gazette.</p>
-  </footer>
-</body>
-</html>
+</body></html>
