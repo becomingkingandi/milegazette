@@ -11,6 +11,7 @@ document.querySelectorAll("[data-newsletter]").forEach(form=>{
     const email=form.querySelector('input[type="email"]');
     const button=form.querySelector("button");
     const status=form.querySelector(".form-status");
+    const originalLabel=button.textContent;
     if(!email.checkValidity()){email.reportValidity();return}
     button.disabled=true;button.textContent="Joining…";status.textContent="";
     try{
@@ -18,7 +19,7 @@ document.querySelectorAll("[data-newsletter]").forEach(form=>{
       if(!response.ok)throw new Error("capture failed");
       status.textContent="You’re on the list. Watch your inbox.";form.reset();
     }catch(error){status.textContent="We couldn’t add you right now. Please try again."}
-    finally{button.disabled=false;button.textContent="Join free"}
+    finally{button.disabled=false;button.textContent=originalLabel}
   });
 });
 document.querySelectorAll("[data-points-calculator]").forEach(form=>{
