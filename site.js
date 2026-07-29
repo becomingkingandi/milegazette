@@ -5,6 +5,17 @@ menuButton?.addEventListener("click",()=>{
   menuButton.setAttribute("aria-expanded",String(open));
 });
 document.querySelectorAll("[data-year]").forEach(el=>el.textContent=new Date().getFullYear());
+window.dataLayer=window.dataLayer||[];
+document.querySelectorAll("[data-referral-name]").forEach(link=>{
+  link.addEventListener("click",()=>{
+    window.dataLayer.push({
+      event:"referral_click",
+      referral_name:link.dataset.referralName,
+      referral_url:link.href,
+      page_path:window.location.pathname
+    });
+  });
+});
 document.querySelectorAll("[data-newsletter]").forEach(form=>{
   form.addEventListener("submit",async event=>{
     event.preventDefault();

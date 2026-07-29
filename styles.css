@@ -311,6 +311,32 @@ h1 {
   color: var(--muted);
   font-size: .92rem;
 }
+.article-trust {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .82rem;
+}
+.article-trust p { margin: 4px 0; }
+.article-trust a,
+.affiliate-note a:not(.button) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.affiliate-note {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  background: var(--soft);
+}
+.affiliate-note p {
+  color: var(--muted);
+  line-height: 1.55;
+}
 
 @media (max-width: 920px) {
   .grid,
