@@ -8,12 +8,13 @@ document.querySelectorAll("[data-year]").forEach(el=>el.textContent=new Date().g
 window.dataLayer=window.dataLayer||[];
 document.querySelectorAll("[data-referral-name]").forEach(link=>{
   link.addEventListener("click",()=>{
-    window.dataLayer.push({
-      event:"referral_click",
+    const eventData={
       referral_name:link.dataset.referralName,
       referral_url:link.href,
       page_path:window.location.pathname
-    });
+    };
+    if(typeof window.gtag==="function")window.gtag("event","referral_click",eventData);
+    else window.dataLayer.push({event:"referral_click",...eventData});
   });
 });
 document.querySelectorAll("[data-newsletter]").forEach(form=>{
@@ -29,6 +30,7 @@ document.querySelectorAll("[data-newsletter]").forEach(form=>{
       const response=await fetch("https://api.knolyz.com/api/v1/crm/capture",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:email.value,source:"milegazette",tags:["newsletter"]})});
       if(!response.ok)throw new Error("capture failed");
       status.textContent="You’re on the list. Watch your inbox.";form.reset();
+      if(typeof window.gtag==="function")window.gtag("event","newsletter_signup",{page_path:window.location.pathname});
     }catch(error){status.textContent="We couldn’t add you right now. Please try again."}
     finally{button.disabled=false;button.textContent=originalLabel}
   });
