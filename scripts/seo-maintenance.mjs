@@ -6,79 +6,6 @@ const site = "https://milegazette.com";
 const updated = "2026-07-28";
 const updatedLabel = "July 28, 2026";
 
-const evergreenCopies = [
-  {
-    from: "cards/best-travel-credit-cards-2024-detailed-comparison.html",
-    to: "cards/best-travel-credit-cards/index.html",
-    title: "Best Travel Credit Cards for Miles: Comparison Guide — Mile Gazette",
-    h1: "Best Travel Credit Cards for Miles: A Practical Comparison",
-    description: "Compare travel credit cards by annual fee, rewards, transfer partners and realistic value for different travel styles."
-  },
-  {
-    from: "cards/best-travel-credit-cards-for-europe-2024.html",
-    to: "cards/best-travel-credit-cards-for-europe/index.html",
-    title: "Best Travel Credit Cards for Europe — Mile Gazette",
-    h1: "Best Travel Credit Cards for Europe",
-    description: "Compare travel cards for Europe by foreign transaction fees, acceptance, protections, rewards and transfer partners."
-  },
-  {
-    from: "cards/best-travel-credit-cards-for-flights-2025.html",
-    to: "cards/best-travel-credit-cards-for-flights/index.html",
-    title: "Best Travel Credit Cards for Flights — Mile Gazette",
-    h1: "Best Travel Credit Cards for Flights",
-    description: "Compare cards for flight rewards, airport benefits and lounge access while weighing annual fees and restrictions."
-  },
-  {
-    from: "guides/budapest-budget-travel-guide-2024.html",
-    to: "guides/budapest-budget-travel-guide/index.html",
-    title: "Budapest Budget Travel Guide — Mile Gazette",
-    h1: "Budapest on a Budget: A Practical Travel Guide",
-    description: "Plan a Budapest trip with practical guidance on neighborhoods, transit, affordable food and major attractions."
-  },
-  {
-    from: "guides/budget-friendly-tokyo-guide-2025.html",
-    to: "guides/budget-friendly-tokyo-guide/index.html",
-    title: "Budget-Friendly Tokyo Travel Guide — Mile Gazette",
-    h1: "Tokyo on a Budget: A Practical Travel Guide",
-    description: "Plan an affordable Tokyo trip with practical guidance on transit, food, neighborhoods and free attractions."
-  },
-  {
-    from: "guides/phuket-thailand-budget-travel-guide-2025.html",
-    to: "guides/phuket-thailand-budget-travel-guide/index.html",
-    title: "Phuket Budget Travel Guide — Mile Gazette",
-    h1: "Phuket on a Budget: A Practical Travel Guide",
-    description: "Plan an affordable Phuket trip with guidance on beaches, transportation, food and accommodation."
-  },
-  {
-    from: "guides/tulum-on-a-budget-2025-guide.html",
-    to: "guides/tulum-on-a-budget-guide/index.html",
-    title: "Tulum Budget Travel Guide — Mile Gazette",
-    h1: "Tulum on a Budget: A Practical Travel Guide",
-    description: "Plan a Tulum trip with practical guidance on beaches, transportation, food and accommodation costs."
-  },
-  {
-    from: "destinations/bangkok-street-food-guide-best-stalls-2024.html",
-    to: "destinations/bangkok-street-food-guide/index.html",
-    title: "Bangkok Street Food Guide — Mile Gazette",
-    h1: "Bangkok Street Food: A Practical Guide",
-    description: "Explore Bangkok street food with practical guidance on dishes, neighborhoods, pricing and food-safety considerations."
-  },
-  {
-    from: "destinations/best-hostels-in-lisbon-portugal-2025.html",
-    to: "destinations/best-hostels-in-lisbon/index.html",
-    title: "Best Hostels in Lisbon: How to Choose — Mile Gazette",
-    h1: "How to Choose a Hostel in Lisbon",
-    description: "Compare Lisbon hostel neighborhoods, room types, transit access and booking considerations for a practical stay."
-  },
-  {
-    from: "destinations/lisbon-portugal-weekend-guide-budget-tips.html",
-    to: "destinations/lisbon-budget-travel-guide/index.html",
-    title: "Lisbon Budget Travel Guide — Mile Gazette",
-    h1: "Lisbon on a Budget: A Practical Travel Guide",
-    description: "Plan an affordable Lisbon trip with guidance on neighborhoods, transit, food and major attractions."
-  }
-];
-
 const redirectSources = new Set([
   "cards/best-travel-credit-cards-2024-detailed-comparison.html",
   "cards/best-travel-credit-cards-2024-for-mile-collectors.html",
@@ -166,18 +93,6 @@ function addTrust(html, isCards) {
   return html;
 }
 
-for (const copy of evergreenCopies) {
-  const destination = path.join(root, copy.to);
-  if (fs.existsSync(destination)) continue;
-  let html = fs.readFileSync(path.join(root, copy.from), "utf8");
-  html = html.replace(/2024|2025/g, "").replace(/\s{2,}/g, " ");
-  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${copy.title}</title>`);
-  html = html.replace(/<h1[^>]*>[\s\S]*?<\/h1>/i, `<h1>${copy.h1}</h1>`);
-  html = html.replace(/<meta[^>]+name=["']description["'][^>]*>/i, `<meta name="description" content="${copy.description}">`);
-  fs.mkdirSync(path.dirname(destination), { recursive: true });
-  fs.writeFileSync(destination, html);
-}
-
 const htmlFiles = [];
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -190,7 +105,6 @@ function walk(directory) {
 walk(root);
 
 const audit = [];
-const prototypeFiles = new Set(["article-detail.html", "card-comparison.html"]);
 function removeUnsupportedExperience(html) {
   return html.replace(/<p([^>]*)>([\s\S]*?)<\/p>/gi, (whole, attributes, content) => {
     if (/<[^>]+>/.test(content)) return whole;
@@ -207,9 +121,6 @@ function removeUnsupportedExperience(html) {
 for (const file of htmlFiles) {
   const relative = path.relative(root, file).split(path.sep).join("/");
   let html = fs.readFileSync(file, "utf8");
-  if (prototypeFiles.has(relative) && !/name=["']robots["']/i.test(html)) {
-    html = html.replace("</head>", `  <meta name="robots" content="noindex,follow">\n</head>`);
-  }
   const noindex = /name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
   const redirected = redirectSources.has(relative);
   if (redirected) {
