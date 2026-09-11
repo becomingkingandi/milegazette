@@ -1,0 +1,5 @@
+.vercel
+graphify-out/
+
+# injected-promo backups, never track these
+*.bak-*
